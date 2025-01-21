@@ -1,0 +1,43 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 21/01/2025 12:53:39
+
+00001000                             1      ORG $1000
+00001000                             2  START:
+00001000                             3      ;MOVE.L EXAMPLES
+00001000                             4  
+00001000  7064                       5      MOVE.L  #$64, D0
+00001002  21C0 3000                  6      MOVE.L  D0, $3000
+00001006  21F8 3000 3020             7      MOVE.L  $3000, $3020
+0000100C                             8  
+0000100C  2200                       9      MOVE.L  D0, D1
+0000100E  7000                      10      MOVE.L  #0, D0
+00001010  203C 000000FF             11      MOVE.L  #%11111111, D0
+00001016                            12  
+00001016                            13      ;MOVE.B EXAMPLES
+00001016                            14  
+00001016  103C 0000                 15      MOVE.B  #0, D0
+0000101A  11C0 3010                 16      MOVE.B  D0, $3010
+0000101E  1200                      17      MOVE.B  D0, D1
+00001020  11C1 3010                 18      MOVE.B  D1, $3010
+00001024  1038 3010                 19      MOVE.B  $3010, D0
+00001028                            20  
+00001028                            21      ;MOVE.W EXAMPLES
+00001028                            22  
+00001028  343C 0009                 23      MOVE.W  #%1001, D2
+0000102C  3602                      24      MOVE.W  D2, D3
+0000102E  31C3 3010                 25      MOVE.W  D3, $3010
+00001032  31F8 3010 3020            26      MOVE.W  $3010, $3020
+00001038  3638 3020                 27      MOVE.W  $3020, D3
+0000103C  3403                      28      MOVE.W  D3, D2
+0000103E                            29  
+0000103E                            30      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000
