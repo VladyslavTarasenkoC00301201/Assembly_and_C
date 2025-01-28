@@ -1,0 +1,9 @@
+	ORG	$1000
+START:
+	
+	LEA	$4000, A1
+	MOVE.B	#100,(A1)
+
+	SIMHALT
+
+	END START
