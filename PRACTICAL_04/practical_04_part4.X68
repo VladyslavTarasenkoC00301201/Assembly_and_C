@@ -1,0 +1,22 @@
+	ORG	$1000
+START:
+	LEA	HEALTH, A3
+
+
+LOOP:
+
+
+QUESTIONER:
+
+
+HEATH_MODIFIER:
+; D4, A3
+	
+
+
+
+
+
+HEALTH	dc.b	#$64
+	
+

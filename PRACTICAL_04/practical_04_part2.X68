@@ -1,0 +1,18 @@
+	ORG	$1000
+START:
+	MOVE.B	#100, $3000
+
+	MOVE.B	#$12, D2
+
+	MOVE.B	#$22, D3
+
+	AND.B	D2, D3
+
+	LEA	$3000, A1
+
+	SUB.B	#20, (A1)
+
+	ADD.B	#10, (A1)
+
+	
+
