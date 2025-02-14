@@ -1,0 +1,32 @@
+00000000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 14/02/2025 09:12:28
+
+00000000                             1  INITIALIZE:
+00000000  103C 0003                  2      MOVE.B #3, D0
+00000004  123C 0000                  3      MOVE.B  #0, D1
+00000008                             4  
+00000008                             5  GAME_LOOP:
+00000008  B03C 0001                  6      CMP.B   #1, D0
+0000000C  6600 0006                  7      BNE GAME_POINTS
+00000010  6700 000A                  8      BEQ GAME_OVER
+00000014                             9  
+00000014                            10  GAME_POINTS:
+00000014  0601 000A                 11      ADD.B   #10, D1
+00000018  5300                      12      SUB.B   #1, D0
+0000001A  60EC                      13      BRA GAME_LOOP
+0000001C                            14  
+0000001C                            15  GAME_OVER:
+Line 16 WARNING: END directive missing, starting address not set
+
+No errors detected
+1 warning generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+GAME_LOOP           8
+GAME_OVER           1C
+GAME_POINTS         14
+INITIALIZE          0
