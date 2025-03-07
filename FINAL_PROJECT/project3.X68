@@ -1,3 +1,16 @@
+; Vladyslav Tarasenko C00301201
+; Date of final commit: 09/03/2025
+; Brief: text-based game skeleton, there is working command parser with some available commands,
+; there is a skeleton of dynamic updating of the map - usage of LOCATIONAL_ITEMS array, to dynamicly 
+; update available interactive items for the player at the moment, there is a control of the speed of the game
+; (output speed) of the program using DELAY. The beginning of the game is also ready finishing on a menu that
+; in the future will allow the player to pick and start a story. To get there the player needs to talk to John get
+; recieve the newspaper and read it. At this point the game finishes when user enters quit command
+; There is a safe point where the player returns in case he enters invalid command, which creates an endless loop.
+; If user enters valid command then particular event happen for example, if you talk to John you will get a short dialogue
+; displayed on the screen, and also the newspaper will become available to read. After the player returns to the safe point
+; where he can enter another command
+
         ORG $1000
 
 
@@ -61,7 +74,7 @@ CHAPTER_1_SAFE_POINT_2:
 
 PRINT: 
         MOVE.B  #1, D1         
-        MOVE.L  #10, D6       ; 10 for faster debugging otherwise 20000 
+        MOVE.L  #5000, D6       ; 10 for faster debugging otherwise 20000 
         BSR     DELAY
         TRAP    #15           ; Call Easy68K system trap for output
         ADDQ    #1, A1
@@ -430,6 +443,7 @@ INVENTORY:
 
 PLAYER_INPUT_BUFFER: DS.B INPUT_BUFFER_SIZE
         END START
+
 
 
 
