@@ -1,0 +1,75 @@
+Test plas is following:
+1) Check the correctness of the program behaviour when it is used as expected.
+2) Check the program behaviour in unsual scenarious.
+    Plan:
+       sc0. user enters two positive number not exceeding the limits;       
+       sc1. user enters a letter; 
+       sc2. user enters a negative number;
+       sc3. user enters a number that exceed the limits;
+       sc4. user enters two numbers, the sum of which exceeds the limits;
+       sc5. user enters the maximum possible number;
+       sc6. user enters a string of letters exceeding the limits;
+
+sc0 -> PASSED
+
+input                 : 190
+expected_behaviour    : "Enter a number: "
+output                : "Enter a number: "
+input                 : 10
+expected_behaviour    : "The current sum is: 200 "
+                      : "Enter a nubmer: "
+output                : "The current sum is: 200 "
+                      : "Enter a nubmer: "
+input                 : 7833
+expected_behaviour    : "Enter a number: "
+output                : "Enter a number: "
+input                 : 23223
+expected_behaviour    : "The current sum is: 31056 "
+                      : "Enter a nubmer: "
+output                : "The current sum is: 31056 "
+                      : "Enter a nubmer: "
+input                 : 1
+expected_behaviour    : "Enter a number: "
+output                : "Enter a number: "
+input                 : 1
+expected_behaviour    : "The final sum is: 2 "
+output                : "The final sum is: 2: "
+
+
+
+sc1 -> PASSED
+
+input                 : n
+expected behaviour    : "You have entered invalid data, exiting..."
+output                : "You have entered invalid data, exiting..."
+
+
+sc2 -> PASSED
+note: the program is meant for positive numbers, in algorythm is compares each
+digit with ascii '0' and '9', it can handle negative if correspondind comparisons
+are added. But this is not done to simplify the flow and emphasize more impor-
+tant deliveratives.
+
+input                 : -2
+expected behaviour    : "You have entered invalid data, exiting..."
+output                : "You have entered invalid data, exiting..."          
+
+
+sc3 -> PASSED
+
+input                 : 9999999999999999999999999
+expected behaviour    : "The risk of overflow was encountered, program exits..."
+output                : "The risk of overflow was encountered, program exits..."
+
+
+sc4 -> PASSED
+
+input                 : 9223372036854775808
+expected_behaviour    : "Enter a number: "
+output                : "Enter a number: "
+input                 : 9223372036854775808
+expected behaviour    : "The risk of overflow was encountered, program exits..."
+output                : "The risk of overflow was encountered, program exits..."
+
+sc5 -> PASSED 18446744073709551615
+
