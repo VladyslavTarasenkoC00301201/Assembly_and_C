@@ -1,8 +1,9 @@
 ;Title		: Parameter Passing Example x86_64
 ;Written by	: Vladyslav Tarasenko
 ;Date Created	: March-25-2025
-;Description	: 
-
+;Description	: Programm that adds two numbers and prints the sum 3 times, 
+;		  with validation of the input, and overflow prevention mecha-
+;		  nisms
 
 
 section .data
@@ -29,7 +30,7 @@ section .text
 _start:
 	mov	qword [sum], 0 ; initialize sum to 0
 	
-	mov	r14, 6 ; loop counter set to 3
+	mov	r14, 6 ; loop counter set to 6
 
 
 .game_loop:
