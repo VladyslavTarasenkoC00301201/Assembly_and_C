@@ -71,5 +71,17 @@ input                 : 9223372036854775808
 expected behaviour    : "The risk of overflow was encountered, program exits..."
 output                : "The risk of overflow was encountered, program exits..."
 
-sc5 -> PASSED 18446744073709551615
+sc5 -> PASSED 
+input                 : 18446744073709551615
+expected_behaviour    : "Enter a number: "
+output                : "Enter a number: "
+input                 : 1
+expected behaviour    : "The risk of overflow was encountered, program exits..."
+output                : "The risk of overflow was encountered, program exits..."
+
+
+sc6 -> PASSED
+input                 : kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+expected behaviour    : "You have entered invalid data, exiting..."
+output                : "You have entered invalid data, exiting..."
 
