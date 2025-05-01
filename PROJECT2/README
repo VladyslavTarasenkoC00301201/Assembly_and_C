@@ -1,1 +1,37 @@
-
+1) In the .data section additional PROMTS were added, to respond for invalid inputs
+and buffer overflows.
+2) In the .bss section several buffers are declared. Input buffer, buffer holding
+input length, buffer that holds sum as a nubmer, and buffer holding sum as ASCII 
+chars for output.
+3) The loop algorythm was changed significatly, several validations were added to
+ensure that: input consists of digit between 0 and 9 including, the number is within
+limits of maximum possible number a 64-bit register can hold, the sum of the numbers
+is also within same limits. The validations process is multistep. The input is proc-
+cessed character by character. First step is to get rid of new line character, if the
+input ends with newline. If the input had exceeded 21 bits, still only 21 bit will be
+read by system call. In this scenario last character will not be newline. 21 bits is
+enought to hold the maximum possible integer and newline. After newline is encounterd
+by the comparison with 10 (ascii newline) it is replaced with zero. The buffer holding
+input length is decremented by one. It then decremented by 1 again, as it is used in
+loops and the charactes in buffer are counted from 0. So it represents the last cha-
+racter. After the newline character is extracted, we start to extract and validate 
+digits one by one and then add them to a register allocated to hold the whole number.
+The digits are tested to be between '0' and '9' in ASCII and then converted to nu-
+merical values. After we need to determine if there is a risk of overflow, when we
+are adding the digit to the register. To add the new digit, we firstly shift the 
+number in the register to the left, by multipling it on 10 and then add the digit
+to the less significant bit. To prevent overflow the following approach is used:
+CURRENT_NUMBER * 10 + digit < MAX_POSSIBLE_NUMBER, from which follows that:
+CURRENT_NUMBER < (MAX_POSSIBLE_NUMBER - digit)/10
+If there overflow is predicted, the program prints the error message and exists with
+error code. When all the digits were assembled to the number, the number is added to
+the sum buffer that holds the numerical sum value. Similar formula to previous one
+is used here to predict overflow when adding the number to the buffer.
+4) Loop modifications. The main counter is assigned to 6, bacause of complicate
+validation algorythm that needs to be done on each input, one iteration only processes
+one enetered number. All together we need to process 6 numbers to replicate the fun-
+ctionality of provided Motorola 68K assembly program. The algorythm checks if the 
+counter is odd or even, and each 2 entered numbers it prints the sum and clears the 
+sum buffers, while the input buffer is cleared each iteration. 
+5) Significant amount of subroutins and loops were added to provide fucntionality
+for validation, clering, converting and printing processes.
